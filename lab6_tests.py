@@ -1,6 +1,7 @@
 import data
 import lab6
 import unittest
+from data import Book
 
 
 # Write your test cases for each part below.
@@ -64,19 +65,47 @@ class TestCases(unittest.TestCase):
 
 
     # Part 1
+    def test_selection_sort_books1(self):
+        book1 = Book(["Author", "Bauthor", "Cauthor", "Dauthor"], "Atitle")
 
+        bookList = [book1]
+
+        lab6.selection_sort_books(bookList)
+
+        expected = [book1]
+        result = bookList
+
+        self.assertEqual(result, expected)
+
+    def test_selection_sort_books2(self):
+        book1 = Book(["James", "Sofia", "Janelle", "Max"], "Atitle")
+
+        bookList = [book1]
+
+        lab6.selection_sort_books(bookList)
+
+        expected = [book1]
+        result = bookList
+
+        self.assertEqual(result, expected)
 
     # Part 2
-
+    def test_swap_case1(self):
+        self.assertEqual(lab6.swap_case("Your Mom"), "yOUR mOM")
+    def test_swap_case2(self):
+        self.assertEqual(lab6.swap_case("Your Dad"), "yOUR dAD")
 
     # Part 3
-
+    def test_str_translate1(self):
+        self.assertEqual(lab6.str_translate("Jonathan", "o", "0"), "J0nathan")
+    def test_str_translate2(self):
+        self.assertEqual(lab6.str_translate("Garcia", "a", "@"), "G@rci@")
 
     # Part 4
-
-
-
-
+    def test_histogram1(self):
+        self.assertEqual(lab6.histogram("a b a"), {"a": 2, "b": 1})
+    def test_histogram2(self):
+        self.assertEqual(lab6.histogram("b b a"), {"a": 1, "b": 2})
 
 if __name__ == '__main__':
     unittest.main()
